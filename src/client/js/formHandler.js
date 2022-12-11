@@ -1,38 +1,17 @@
-function handleSubmit(event) {
+import axios from "axios";
+import {validateUrl} from "./nameChecker"
+
+
+const handleSubmit = async(event) => {
     event.preventDefault()
 
-    // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    checkForName(formText)
+    let responseUrl = document.getElementById("name");
 
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8080/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
-    })
-}
-
-const postToApi = async (apiUrl, responseData={}) => {
-    const apiResponse = await fetch(apiUrl, {
-        method: "POST",
-        credentials: "same-origin",
-        mode: "cors",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(responseData)
-    })
-
-    try {
-        return await apiResponse.json()
-    } catch (e) {
-        console.log(e)
+    if(validateUrl(responseUrl)) {
+        console.log(responseUrl)
+        axios.post(responseUrl, {url: responseUrl})
+        .then((reponse)=> console.log(response))
     }
-}
-
-const handleSubmit = async() => async {
-    //check URL
 }
 
 

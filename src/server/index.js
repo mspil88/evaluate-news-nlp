@@ -47,6 +47,8 @@ app.get('/test', function (req, res) {
 //post route for the API call
 //using axios post, inspiration from here https://blog.logrocket.com/understanding-axios-post-requests/
 app.post("/articleResponse", async (req, res) => {
+    console.log("activating post")
+    console.log(req);
     axios.post(`${API_URL}?=${process.env.API_KEY}&url=${req.body.url}&lang=en`)
     .then((response) => {
         res.send(response.data);
