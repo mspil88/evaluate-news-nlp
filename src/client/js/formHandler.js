@@ -13,4 +13,27 @@ function handleSubmit(event) {
     })
 }
 
+const postToApi = async (apiUrl, responseData={}) => {
+    const apiResponse = await fetch(apiUrl, {
+        method: "POST",
+        credentials: "same-origin",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(responseData)
+    })
+
+    try {
+        return await apiResponse.json()
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+const handleSubmit = async() => async {
+    //check URL
+}
+
+
 export { handleSubmit }
