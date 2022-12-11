@@ -1,13 +1,15 @@
 import {validateUrl} from "./nameChecker"
 
-const agreement = document.querySelector(".agreement")
-const irony = document.querySelector(".irony")
-const model = document.querySelector(".model")
-const score_tag = document.querySelector(".score-tag")
-const subjectivity = document.querySelector(".subjectivity")
+const agreementElem = document.querySelector(".agreement")
+const confidenceElem = document.querySelector(".confidence")
+const ironyElem = document.querySelector(".irony")
+const modelElem = document.querySelector(".model")
+const score_tagElem = document.querySelector(".score-tag")
+const subjectivityElem = document.querySelector(".subjectivity")
 
 const errorMsg = document.querySelector(".error");
 
+var resultData;
 
 const postData =  async (url = '', data = {}) => {
     //helper function to post data back, inspired by the fetch API documentation
@@ -38,13 +40,22 @@ const handleSubmit = async(event) => {
     console.log(responseUrl);
     if(validateUrl(responseUrl)) {
       const data = await postData(serverUrl, {url: responseUrl});
-      console.log({data});
+      console.log(data);
+      resultData = data;
+      setOutputs(data);
     } else {
       errorMsg.textContent = "Error: Please provide a valid URL"
     }
 }
 
 const setOutputs = (res) => {
+    const {agreement, confidence, irony, model, score_tag, subjectivity} = res
+    agreementElem.textContent = `Agreement: ${agreement}`
+    confidenceElem.textContent = `Confidence: ${confidence}`
+    ironyElem.textContent = `Irony: ${irony}`
+    modelElem.textContent = `Model: ${model}`
+    score_tagElem.textContent = `Score Tag: ${score_tag}`
+    subjectivityElem.textContent = `Subjectivity: ${subjectivity}`
 
 }
 
