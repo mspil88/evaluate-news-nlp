@@ -63,14 +63,6 @@ app.get('/test', function (req, res) {
 //     res.send("hi from the server")
 // })
 
-const analyse = async (req, res) => {
-    const { body: { url } } = req;
-    const apiUrl = `${ANALYSIS_API}?key=${API_KEY}&url=${url}&lang=en`
-    const response = await axios.post(apiUrl);
-    const result = response.data;
-    res.send(result);
-  }
-  
 
 app.post("/articleResponse", async (req, res) => {
     console.log("articleResponse")
@@ -81,8 +73,8 @@ app.post("/articleResponse", async (req, res) => {
 	const response = await axios.post(`${API_URL}?key=${process.env.API_KEY}&url=${url}&lang=en`)
     console.log(`${API_URL}?key=${process.env.API_KEY}&url=${url}&lang=en`)
     console.log("API RESPONSE")
-    console.log(response)
-    res.send(response.data);
+    console.log(response.data)
+    res.send({responseData: response.data, responseStatus: response.data.status.code});
 });
 
 // designates what port the app will listen to for incoming requests

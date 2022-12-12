@@ -40,23 +40,29 @@ const handleSubmit = async(event) => {
     console.log(responseUrl);
     if(validateUrl(responseUrl)) {
       const data = await postData(serverUrl, {url: responseUrl});
-      console.log(data);
+      console.log(`RETURNED DATA ${data.responseData}`);
+      console.log(`RETURNED Status ${data.responseStatus}`);
       resultData = data;
-      setOutputs(data);
+      setOutputs(resultData.responseData, resultData.responseStatus);
     } else {
       errorMsg.textContent = "Error: Please provide a valid URL"
     }
 }
 
-const setOutputs = (res) => {
-    const {agreement, confidence, irony, model, score_tag, subjectivity} = res
-    agreementElem.textContent = `Agreement: ${agreement}`
-    confidenceElem.textContent = `Confidence: ${confidence}`
-    ironyElem.textContent = `Irony: ${irony}`
-    modelElem.textContent = `Model: ${model}`
-    score_tagElem.textContent = `Score Tag: ${score_tag}`
-    subjectivityElem.textContent = `Subjectivity: ${subjectivity}`
 
+const setOutputs = (resData, resStatus) => {
+    if(resStatus == 0) {
+      const {agreement, confidence, irony, model, score_tag, subjectivity} = resData
+      agreementElem.textContent = `Agreement: ${agreement}`
+      confidenceElem.textContent = `Confidence: ${confidence}`
+      ironyElem.textContent = `Irony: ${irony}`
+      modelElem.textContent = `Model: ${model}`
+      score_tagElem.textContent = `Score Tag: ${score_tag}`
+      subjectivityElem.textContent = `Subjectivity: ${subjectivity}`
+    } else {
+      errorMsg.textContent = "Error: API error, please try again"
+    }
+    
 }
 
 
