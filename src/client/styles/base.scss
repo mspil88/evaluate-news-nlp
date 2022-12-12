@@ -8,6 +8,7 @@ body {
 
 main {
     flex: 2;
+    max-height: 800px;
 }
 
 section {
@@ -29,6 +30,7 @@ section {
 
 .results {
     font-family: $font;
+
 }
 
 .agreement, .confidence, .irony, .model, .score-tag, .subjectivity {

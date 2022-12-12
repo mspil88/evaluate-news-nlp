@@ -1,0 +1,27 @@
+$secondary-font-color: rgba(0, 0, 0, 0.3);
+$primary-font-color: black;
+
+
+footer {
+    display: inline-block;
+    // border-top: 1px solid black;
+    background-color:rgba(128, 128, 128, 0.1);
+    height: 200px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 50px;
+    color: $primary-font-color;
+    
+}
+
+.fa-brands {
+    transition: 0.2s;
+}
+
+.fa-brands:hover {
+    color: $secondary-font-color;
+}
