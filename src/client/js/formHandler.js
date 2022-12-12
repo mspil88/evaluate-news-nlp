@@ -33,6 +33,7 @@ const postData =  async (url = '', data = {}) => {
 
 const handleSubmit = async(event) => {
     event.preventDefault()
+    clearOutputs();
     console.log("CALLING HANDLE SUMBMIT")
     const responseUrl = document.getElementById("name").value;
     const serverUrl = "http://localhost:8081/articleResponse";
@@ -65,5 +66,10 @@ const setOutputs = (resData, resStatus) => {
     
 }
 
+const clearOutputs = () => {
+  for(let elem of [agreementElem, confidenceElem, ironyElem, modelElem, score_tagElem, subjectivityElem, errorMsg]) {
+    elem.textContent = "";
+  }
+}
 
 export { handleSubmit, setOutputs};
