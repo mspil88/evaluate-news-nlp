@@ -68,12 +68,10 @@ app.post("/articleResponse", async (req, res) => {
     console.log("articleResponse")
 
     const {body: {url}} = req;
-    console.log(`URL: ${url}`)
-
+    
+    
 	const response = await axios.post(`${API_URL}?key=${process.env.API_KEY}&url=${url}&lang=en`)
-    console.log(`${API_URL}?key=${process.env.API_KEY}&url=${url}&lang=en`)
-    console.log("API RESPONSE")
-    console.log(response.data)
+    
     res.send({responseData: response.data, responseStatus: response.data.status.code});
 });
 
