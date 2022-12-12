@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/styles/header.css">
         <link rel="stylesheet" href="/styles/form.css">
         <link rel="stylesheet" href="/styles/footer.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     </head>
 
     <body>
@@ -23,11 +24,7 @@
 
         <main>
             <section>
-                <!-- <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
-                </form> -->
-
+                <div class="form-title">Submit an article to find out it's sentiment</div>
                 <form onsubmit="return Client.handleSubmit(event)">
                     <input id="name" type="text" name="input" value="" placeholder="Name">
                     <button type="submit" name="" value="submit">Submit</button>
@@ -35,12 +32,12 @@
                 
             </section>
 
-            <section>
+            <section >
                 <div class="error-container">
                     <div class="error"></div>
                 </div>
-                <strong>Form Results:</strong>
-                <div id="results">
+                <div class="form-results-title">Form Results:</div>
+                <div class="results">
                     <div class="agreement"></div>
                     <div class="confidence"></div>
                     <div class="irony"></div>
@@ -52,7 +49,14 @@
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook fa-2xl"></i>
+                <i class="fa-brands fa-twitter fa-2xl"></i>
+                <i class="fa-brands fa-youtube fa-2xl"></i>
+                <i class="fa-brands fa-instagram fa-2xl"></i>
+                <i class="fa-brands fa-tiktok fa-2xl"></i>
+            
+            </div>
         </footer>
 
     </body>
