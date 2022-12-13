@@ -8,35 +8,50 @@
         <link rel="stylesheet" href="/styles/header.css">
         <link rel="stylesheet" href="/styles/form.css">
         <link rel="stylesheet" href="/styles/footer.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     </head>
 
     <body>
 
         <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
+            <div class="app-title">The Sentiment Analyser</div>
         </header>
 
         <main>
             <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                <div class="form-title">Submit an article to find out it's sentiment</div>
+                <form onsubmit="return Client.handleSubmit(event)">
+                    <input id="name" type="text" name="input" value="" placeholder="Name">
+                    <button type="submit" name="" value="submit">Submit</button>
                 </form>
+                
             </section>
 
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+            <section >
+                <div class="error-container">
+                    <div class="error"></div>
+                </div>
+                <div class="form-results-title">Form Results:</div>
+                <div class="results">
+                    <div class="agreement"></div>
+                    <div class="confidence"></div>
+                    <div class="irony"></div>
+                    <div class="model"></div>
+                    <div class="score-tag"></div>
+                    <div class="subjectivity"></div>                    
+                </div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook fa-2xl"></i>
+                <i class="fa-brands fa-twitter fa-2xl"></i>
+                <i class="fa-brands fa-youtube fa-2xl"></i>
+                <i class="fa-brands fa-instagram fa-2xl"></i>
+                <i class="fa-brands fa-tiktok fa-2xl"></i>
+            
+            </div>
         </footer>
 
     </body>

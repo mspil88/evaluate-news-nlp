@@ -1,16 +1,11 @@
-function checkForName(inputText) {
-    console.log("::: Running checkForName :::", inputText);
-    let names = [
-        "Picard",
-        "Janeway",
-        "Kirk",
-        "Archer",
-        "Georgiou"
-    ]
-
-    if(names.includes(inputText)) {
-        alert("Welcome, Captain!")
+const validateUrl = (url) => {
+    let userSpecifiedUrl;
+    try {
+        userSpecifiedUrl = new URL(url);
+    } catch (error) {
+        return false;
     }
+    return true;
 }
 
-export { checkForName }
+export { validateUrl }

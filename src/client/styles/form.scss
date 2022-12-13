@@ -1,7 +1,19 @@
+$btn-font: arial; 
+$btn-color: white;
+$btn-color-hover: black;
+$btn-font-color-hover: white;
+
+
 form {
-    border: 1px solid #545454;
-    border-radius: 3px;
-    padding: 40px;
+    // border: 1px solid $btn-color;
+    // border-radius: 3px;
+    // padding: 40px;
+    
+}
+
+.form-title {
+    font-family: $btn-font;
+    padding-bottom: 20px;
 }
 
 input {
@@ -9,4 +21,23 @@ input {
     width: 100%;
     line-height: 16px;
     margin: 10px 0;
+}
+
+button {
+    border-radius: 5px;
+    justify-content: space-evenly;
+    background-color: $btn-color;
+    align-items: center;
+    font-family: $btn-font;
+    height: 30px;
+    width: 90px;
+    margin-bottom: 10px;
+    transition: all 1s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+
+    &:hover {
+        background-color: $btn-color-hover;
+        color: $btn-font-color-hover;
+    }
 }

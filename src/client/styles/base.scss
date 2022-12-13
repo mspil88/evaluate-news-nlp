@@ -1,3 +1,5 @@
+$font: arial; 
+
 body {
     display: flex;
     flex-direction: column;
@@ -6,9 +8,32 @@ body {
 
 main {
     flex: 2;
+    max-height: 800px;
 }
 
 section {
     max-width: 800px;
     margin: 50px auto;
 }
+
+.error {
+    font-family: $font;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-results-title {
+    font-family: $font;
+    margin-bottom: 10px;
+    
+}
+
+.results {
+    font-family: $font;
+
+}
+
+.agreement, .confidence, .irony, .model, .score-tag, .subjectivity {
+    margin-bottom: 5px;
+}
+                
